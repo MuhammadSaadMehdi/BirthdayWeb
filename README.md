@@ -22,12 +22,7 @@ This project allows you to add animations, music, images, and custom messages to
 
 ---
 
-## 📸 Screenshots
-*(Add screenshots here if available)*
-
----
-
 ## 🚀 How to Use
 1. Clone the repository:
    ```bash
-   git clone https://github.com/YourUsername/BirthdayWishWebsite.git
+   git clone https://github.com/MuhammadSaadMehdi/BirthdayWeb.git
