@@ -1,0 +1,762 @@
+/* Base Styles */
+:root {
+    --primary-color: #ff6b6b;
+    --secondary-color: #5f27cd;
+    --text-color: #333;
+    --bg-color: #f9f9f9;
+    --card-bg: #ffffff;
+    --shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Birthday Card Styles */
+.birthday-card {
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    padding: 3rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+    margin-top: 2rem;
+}
+
+.birthday-title {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+.name-highlight {
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 2rem;
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Navigation Buttons */
+.navigation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.nav-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.nav-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    background-color: var(--secondary-color);
+}
+
+/* Music Player */
+.music-player {
+    margin: 1.5rem 0;
+}
+
+.music-btn {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.music-btn:hover {
+    background-color: #7d5fff;
+    transform: scale(1.05);
+}
+
+/* Balloons */
+.balloons {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.balloon {
+    position: absolute;
+    width: 60px;
+    height: 80px;
+    background-color: var(--color);
+    border-radius: 50%;
+    bottom: -100px;
+    animation: floatUp 10s linear infinite;
+    animation-delay: var(--delay);
+    opacity: 0.8;
+}
+
+.balloon::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 50px;
+    background-color: #ccc;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Confetti */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background-color: var(--color, #f00);
+    opacity: 0.7;
+    animation: confettiFall 5s linear infinite;
+    z-index: 0;
+}
+
+.confetti:nth-child(1) {
+    left: 10%;
+    --color: #ff6b6b;
+    animation-delay: 0s;
+}
+
+.confetti:nth-child(2) {
+    left: 30%;
+    --color: #48dbfb;
+    animation-delay: 1s;
+}
+
+.confetti:nth-child(3) {
+    left: 50%;
+    --color: #1dd1a1;
+    animation-delay: 2s;
+}
+
+.confetti:nth-child(4) {
+    left: 70%;
+    --color: #feca57;
+    animation-delay: 3s;
+}
+
+.confetti:nth-child(5) {
+    left: 90%;
+    --color: #5f27cd;
+    animation-delay: 4s;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .birthday-card {
+        padding: 2rem 1rem;
+    }
+    
+    .birthday-title {
+        font-size: 2rem;
+    }
+    
+    .profile-pic {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .navigation {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .nav-btn {
+        width: 80%;
+        text-align: center;
+    }
+}
+
+/* Page Header Styles */
+.page-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.highlight {
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.back-btn {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: var(--primary-color);
+    transform: translateX(-5px);
+}
+
+/* Memories Page Styles */
+.gallery-section, .video-section, .before-after {
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.photo-carousel {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding: 1rem 0;
+    scroll-snap-type: x mandatory;
+}
+
+.gallery-item {
+    scroll-snap-align: center;
+    flex: 0 0 auto;
+    width: 250px;
+    text-decoration: none;
+    color: var(--text-color);
+    position: relative;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.caption {
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.video-card {
+    background: #f5f5f5;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.video-card video {
+    width: 100%;
+    display: block;
+}
+
+.video-caption {
+    padding: 0.8rem;
+    text-align: center;
+    background: white;
+}
+
+.comparison-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.before, .after {
+    text-align: center;
+    flex: 1;
+    min-width: 250px;
+}
+
+.before img, .after img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Letter Page Styles */
+.letter-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.letter-paper {
+    background-color: #fff9e6;
+    padding: 3rem;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 1;
+    border: 1px solid #eee;
+    font-family: 'Courier New', monospace;
+    line-height: 1.6;
+}
+
+.letter-date {
+    text-align: right;
+    margin-bottom: 2rem;
+    color: #666;
+}
+
+.name {
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.highlight-text {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.memory {
+    font-style: italic;
+    color: var(--secondary-color);
+}
+
+.memory-detail {
+    text-decoration: underline;
+}
+
+.trait {
+    font-weight: bold;
+}
+
+.wishes-list {
+    margin: 1rem 0 1rem 2rem;
+}
+
+.wishes-list li {
+    margin-bottom: 0.5rem;
+}
+
+.signature {
+    margin-top: 2rem;
+    font-family: 'Brush Script MT', cursive;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.letter-seal {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    width: 80px;
+    height: 80px;
+    background-color: #d63031;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    z-index: 2;
+}
+
+.wax {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #d63031;
+    border-radius: 50%;
+}
+
+.shine {
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    background-color: rgba(255,255,255,0.4);
+    border-radius: 50%;
+    top: 15%;
+    left: 15%;
+}
+
+.reveal-paragraph {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+    margin-bottom: 1.5rem;
+}
+
+/* Games Page Styles */
+.game-section {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.game-btn {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.game-btn:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.time-block {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    min-width: 80px;
+}
+
+.time-block span {
+    display: block;
+    text-align: center;
+}
+
+.time-block .label {
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+.balloon-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    min-height: 200px;
+}
+
+.balloon-game .balloon {
+    width: 60px;
+    height: 80px;
+    background-color: var(--color, #ff6b6b);
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.balloon-game .balloon::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 30px;
+    background-color: #666;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.balloon-game .balloon:hover {
+    transform: scale(1.1);
+}
+
+.score {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+}
+
+.wheel-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 2rem auto;
+}
+
+.wheel {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    transition: transform 3s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+    transform: rotate(0deg);
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.wheel-item {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    transform-origin: bottom right;
+    transform: rotate(calc(var(--i) * 60deg));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    background-color: var(--color);
+    left: 0;
+    top: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+
+.wheel-center {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+.wheel-pointer {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 30px solid var(--primary-color);
+    z-index: 2;
+}
+
+.wheel-result {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    min-height: 2rem;
+}
+
+.quiz-container {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.quiz-question {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.quiz-question h3 {
+    margin-bottom: 0.5rem;
+}
+
+.quiz-option {
+    margin: 0.5rem 0;
+}
+
+.quiz-option label {
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+
+.quiz-result {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    font-size: 1.1rem;
+}
+
+/* Wishes Page Styles */
+.wish-form {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.submit-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.wishes-wall {
+    margin-top: 2rem;
+}
+
+.wish-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow);
+    text-align: left;
+}
+
+.wish-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.guest-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+}
+
+.guest-avatar i {
+    font-size: 1.5rem;
+    color: #666;
+}
+
+.guest-info h3 {
+    margin: 0;
+    color: var(--primary-color);
+}
+
+.wish-date {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.wish-content {
+    line-height: 1.6;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 2rem;
+    }
+    
+    .letter-paper {
+        padding: 2rem 1rem;
+    }
+    
+    .wheel-container {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Letter | Happy Birthday [Name]</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="page-header">
+            <h1>A <span class="highlight">Special Message</span> For You</h1>
+            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        </header>
+
+        <div class="letter-container">
+            <div class="letter-paper">
+                <div class="letter-content">
+                    <div class="letter-date">[Today's Date]</div>
+                    
+                    <p class="reveal-paragraph" data-delay="500">Dear <span class="name">[Name]</span>,</p>
+                    
+                    <div class="reveal-paragraph" data-delay="1000">
+                        <p>As you celebrate another year of your wonderful life, I wanted to take a moment to tell you how much you mean to me.</p>
+                    </div>
+                    
+                    <div class="reveal-paragraph" data-delay="1500">
+                        <p>From the moment we met, I knew there was something special about you. Your <span class="highlight-text">kindness</span>, your <span class="highlight-text">laughter</span>, and your <span class="highlight-text">unwavering spirit</span> have made my life so much brighter.</p>
+                    </div>
+                    
+                    <div class="reveal-paragraph" data-delay="2000">
+                        <p>Remember when we <span class="memory">[insert special memory]</span>? That's one of my favorite moments with you because <span class="memory-detail">[why it was special]</span>.</p>
+                    </div>
+                    
+                    <div class="reveal-paragraph" data-delay="2500">
+                        <p>You've grown so much over the years, but what hasn't changed is your <span class="trait">[positive trait]</span> and your ability to <span class="trait">[another positive trait]</span>.</p>
+                    </div>
+                    
+                    <div class="reveal-paragraph" data-delay="3000">
+                        <p>On your special day, I wish you:</p>
+                        <ul class="wishes-list">
+                            <li>Endless happiness</li>
+                            <li>Good health and prosperity</li>
+                            <li>Dreams that come true</li>
+                            <li>And another year of amazing memories</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="reveal-paragraph" data-delay="3500">
+                        <p>Thank you for being you. The world is a better place with you in it.</p>
+                    </div>
+                    
+                    <div class="reveal-paragraph" data-delay="4000">
+                        <p>With all my love,</p>
+                        <p class="signature">[Your Name]</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="letter-seal">
+                <div class="wax"></div>
+                <div class="shine"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const paragraphs = document.querySelectorAll('.reveal-paragraph');
+            
+            paragraphs.forEach(para => {
+                const delay = parseInt(para.getAttribute('data-delay'));
+                setTimeout(() => {
+                    para.style.opacity = '1';
+                    para.style.transform = 'translateY(0)';
+                }, delay);
+            });
+        });
+    </script>
+</body>
+</html>

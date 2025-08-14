@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday [Name]!</title>
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="./CSS/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Confetti Background -->
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        
+        <!-- Main Content -->
+        <div class="birthday-card">
+            <h1 class="birthday-title">Happy Birthday <span class="name-highlight">[Name]</span>!</h1>
+            
+            <div class="profile-pic">
+                <img src="assets/images/profile.jpg" alt="[Name]'s Photo">
+            </div>
+            
+            <div class="music-player">
+                <button id="musicToggle" class="music-btn">
+                    <i class="fas fa-music"></i> Play Music
+                </button>
+                <audio id="bgMusic" loop>
+                    <source src="assets/audio/birthday-song.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+            
+            <div class="navigation">
+                <a href="memories.html" class="nav-btn">Photo Memories</a>
+                <a href="letter.html" class="nav-btn">Personal Letter</a>
+                <a href="interactive.html" class="nav-btn">Fun Games</a>
+                <a href="wishes.html" class="nav-btn">Guest Wishes</a>
+            </div>
+            
+            <div class="balloons">
+                <div class="balloon" style="--color: #ff6b6b; --delay: 0s;"></div>
+                <div class="balloon" style="--color: #48dbfb; --delay: 0.5s;"></div>
+                <div class="balloon" style="--color: #1dd1a1; --delay: 1s;"></div>
+                <div class="balloon" style="--color: #feca57; --delay: 1.5s;"></div>
+                <div class="balloon" style="--color: #5f27cd; --delay: 2s;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./JS/script.js"></script>
+</body>
+</html>

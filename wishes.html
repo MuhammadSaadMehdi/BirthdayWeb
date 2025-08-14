@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest Wishes | Happy Birthday [Name]</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="page-header">
+            <h1><span class="highlight">Guest</span> Wishes</h1>
+            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        </header>
+
+        <div class="wishes-container">
+            <!-- Wish Submission Form -->
+            <section class="wish-form-section">
+                <h2>Leave Your Wish</h2>
+                <form id="wishForm" class="wish-form">
+                    <div class="form-group">
+                        <label for="guestName">Your Name:</label>
+                        <input type="text" id="guestName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="guestMessage">Your Message:</label>
+                        <textarea id="guestMessage" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="guestPhoto">Add Photo (optional):</label>
+                        <input type="file" id="guestPhoto" accept="image/*">
+                    </div>
+                    <button type="submit" class="submit-btn">Submit Wish</button>
+                </form>
+            </section>
+
+            <!-- Wishes Wall -->
+            <section class="wishes-wall-section">
+                <h2>Wishes for [Name]</h2>
+                <div class="wishes-wall" id="wishesWall">
+                    <!-- Sample wish (will be populated dynamically) -->
+                    <div class="wish-card">
+                        <div class="wish-header">
+                            <div class="guest-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="guest-info">
+                                <h3>Sample Friend</h3>
+                                <p class="wish-date">Today</p>
+                            </div>
+                        </div>
+                        <div class="wish-content">
+                            <p>Happy Birthday! Wishing you an amazing year ahead!</p>
+                        </div>
+                    </div>
+                    <!-- More wishes will be added here -->
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('wishForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('guestName').value;
+            const message = document.getElementById('guestMessage').value;
+            const photoFile = document.getElementById('guestPhoto').files[0];
+            
+            // Create new wish card
+            const wishCard = document.createElement('div');
+            wishCard.className = 'wish-card';
+            
+            // Add animation
+            wishCard.style.animation = 'fadeIn 0.5s ease-out';
+            
+            // Create wish HTML
+            wishCard.innerHTML = `
+                <div class="wish-header">
+                    ${photoFile ? 
+                        `<div class="guest-avatar" style="background-image: url('${URL.createObjectURL(photoFile)}')"></div>` : 
+                        `<div class="guest-avatar"><i class="fas fa-user"></i></div>`
+                    }
+                    <div class="guest-info">
+                        <h3>${name}</h3>
+                        <p class="wish-date">Just now</p>
+                    </div>
+                </div>
+                <div class="wish-content">
+                    <p>${message}</p>
+                </div>
+            `;
+            
+            // Add to wall
+            document.getElementById('wishesWall').prepend(wishCard);
+            
+            // Reset form
+            this.reset();
+            
+            // Show confirmation
+            alert('Thank you for your wish!');
+        });
+    </script>
+</body>
+</html>
